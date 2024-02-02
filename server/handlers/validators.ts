@@ -51,7 +51,7 @@ export const createLink = [
     .customSanitizer(addProtocol)
     .custom(
       value =>
-        urlRegex({ exact: true, strict: false }).test(value) ||
+        urlRegex({ exact: true, strict: false, parens: true }).test(value) ||
         /^(?!https?)(\w+):\/\//.test(value)
     )
     .withMessage("URL is not valid.")
@@ -139,7 +139,7 @@ export const editLink = [
     .customSanitizer(addProtocol)
     .custom(
       value =>
-        urlRegex({ exact: true, strict: false }).test(value) ||
+        urlRegex({ exact: true, strict: false, parens: true }).test(value) ||
         /^(?!https?)(\w+):\/\//.test(value)
     )
     .withMessage("URL is not valid.")
